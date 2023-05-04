@@ -31,4 +31,15 @@ class MainTest  {
 
     }
 
+    @Test
+    @DisplayName("유저가 공격을 하였을 때 데미지가 리턴이 되는가 테스트")
+    void userAttackTest() throws Exception {
+        //given
+        User user = new User();
+        //when
+        int attack = user.attackEnemy();
+        //then
+        assertThat(attack).isEqualTo(1);
+    }
+
 }
