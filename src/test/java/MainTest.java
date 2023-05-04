@@ -1,22 +1,34 @@
-import org.example.Main;
+import gun.Machine;
+import gun.Sniper;
+import gun.Wepon;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
+import user.User;
 
-import static org.assertj.core.api.Assertions.*;
+import java.util.ArrayList;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class MainTest  {
     @Test
-    @DisplayName("main Test")
-     void test () throws Exception {
+    @DisplayName("유저가 총을 집을때 인벤토리에 잘들어갔는가 확인하는 테스트")
+    void userTakeGunTest() throws Exception {
         //given
-        Main main = new Main();
+        ArrayList<Wepon> list = new ArrayList<>();
+        list.add(new Wepon());
+        list.add(new Machine());
+        list.add(new Sniper());
+        User user = new User();
 
         //when
-        int t = main.test();
-
+        boolean true_0 = user.takeGun(list.get(0));
+        boolean true_1 = user.takeGun(list.get(1));
+        boolean true_2 = user.takeGun(list.get(2));
         //then
-        assertThat(t).isEqualTo(1);
+        assertThat(true_0).isTrue();
+        assertThat(true_1).isTrue();
+        assertThat(true_2).isTrue();
 
     }
+
 }
