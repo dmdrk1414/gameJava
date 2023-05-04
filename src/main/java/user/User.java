@@ -29,4 +29,8 @@ public class User {
         }
         return false;
     }
+
+    public int attackEnemy() {
+        return gun.attack();
+    }
 }
