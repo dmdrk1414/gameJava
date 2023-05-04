@@ -42,4 +42,17 @@ class MainTest  {
         assertThat(attack).isEqualTo(1);
     }
 
+    @Test
+    @DisplayName("유저가 총을 변경하는 테스트함수 추가")
+    void userChangeWeponTest() throws Exception {
+        //given
+        User user = new User();
+
+        //when
+        boolean result = user.ChangeWepon();
+
+        //then
+        assertThat(result).isTrue();
+    }
+
 }
