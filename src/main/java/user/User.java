@@ -10,6 +10,7 @@ public class User {
     private String name;
     private Wepon gun;
     private ArrayList<Wepon> gunInventory;
+    int gunInventoryIndex;
 
     public User() {
         this(0, "");
@@ -20,6 +21,8 @@ public class User {
         this.name = name;
         this.gun = new Wepon();
         this.gunInventory = new ArrayList<>();
+        this.gunInventory.add(new Wepon());
+        this.gunInventoryIndex = 0;
     }
 
     public boolean takeGun(Wepon wepon) {
@@ -32,5 +35,18 @@ public class User {
 
     public int attackEnemy() {
         return gun.attack();
+    }
+
+    public boolean ChangeWepon() {
+        int gunInventorySize = this.gunInventory.size();
+        int gunChangeRight = 1;
+        this.gunInventoryIndex = (this.gunInventoryIndex + gunChangeRight) % gunInventorySize;
+        Wepon currentWepon = this.gunInventory.get(gunInventoryIndex);
+
+        if (UseFunc.isNotNullObject(currentWepon)) {
+            this.gun = currentWepon;
+            return true;
+        }
+        return false;
     }
 }
