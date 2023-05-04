@@ -6,10 +6,10 @@ import gun.Wepon;
 import java.util.ArrayList;
 
 public class User {
-    int age;
-    String name;
-    Wepon gun;
-    ArrayList<Wepon> gunInventory;
+    private int age;
+    private String name;
+    private Wepon gun;
+    private ArrayList<Wepon> gunInventory;
 
     public User() {
         this(0, "");
@@ -22,11 +22,11 @@ public class User {
         this.gunInventory = new ArrayList<>();
     }
 
-    public void takeGun(Wepon wepon) {
+    public boolean takeGun(Wepon wepon) {
         if (UseFunc.isNotNullObject(wepon)) {
             this.gunInventory.add(wepon);
-        } else {
-            System.out.println("test");
+            return true;
         }
+        return false;
     }
 }
