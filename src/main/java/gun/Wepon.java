@@ -11,6 +11,20 @@ public class Wepon {
         this.gunSpeed = 10;
     }
 
+    public int attack() {
+        if (this.isUseGun()) {
+            this.durability -= 1;
+        }
+        return damege;
+    }
+
+    protected Boolean isUseGun() {
+        if (this.durability == 0) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
         return "BasicWepon{" +
