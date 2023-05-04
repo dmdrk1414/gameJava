@@ -20,4 +20,12 @@ public class User {
         this.gun = new Wepon();
         this.gunInventory = new ArrayList<>();
     }
+
+    public void takeGun(Wepon wepon) {
+        if (UseFunc.isNotNullObject(wepon)) {
+            this.gunInventory.add(wepon);
+        } else {
+            System.out.println("test");
+        }
+    }
 }
