@@ -55,4 +55,26 @@ class MainTest  {
         assertThat(result).isTrue();
     }
 
+    @Test
+    @DisplayName("유저가 총을 줍고, 변경하고 총을 싸면 데미지가 잘나오는가 확인")
+    void userChangeWeponAndAttack() throws Exception {
+        //given
+        User user = new User();
+        ArrayList<Wepon> list = new ArrayList<>();
+        list.add(new Machine());
+        list.add(new Sniper());
+        //when
+        for (int i = 0; i < 2; i++) {
+            user.takeGun(list.get(i));
+        }
+        int result_0 = user.attackEnemy(); // 1 기본
+        user.ChangeWepon();
+        int result_1 = user.attackEnemy(); // 1 머신건
+        user.ChangeWepon();
+        int result_2 = user.attackEnemy(); // 10 저격총
+        //then
+        assertThat(result_0).isEqualTo(1);
+        assertThat(result_1).isEqualTo(1);
+        assertThat(result_2).isEqualTo(10);
+    }
 }
