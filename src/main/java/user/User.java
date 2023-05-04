@@ -1,5 +1,6 @@
 package user;
 
+import func.UseFunc;
 import gun.Wepon;
 
 import java.util.ArrayList;
