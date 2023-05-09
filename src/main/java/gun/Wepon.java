@@ -18,6 +18,15 @@ public class Wepon {
         return damege;
     }
 
+    public boolean dropGunDurability() {
+        int valueLowDurability = 1;
+        if (this.durability > 0) {
+            this.durability = this.durability - valueLowDurability;
+            return true;
+        }
+        return false;
+    }
+
     protected Boolean isUseGun() {
         if (this.durability == 0) {
             return false;
