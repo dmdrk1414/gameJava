@@ -27,6 +27,10 @@ public class Wepon {
         return false;
     }
 
+    public int showGunDurability() {
+        return this.durability;
+    }
+
     protected Boolean isUseGun() {
         if (this.durability == 0) {
             return false;
