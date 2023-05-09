@@ -99,4 +99,20 @@ class MainTest  {
         //then
         assertThat(result).isEqualTo(1000);
     }
+
+    @Test
+    @DisplayName("Wepon 클래스에서 현제 총을 사용할수있는가 확인할수 있는 메서드 테스트")
+    void isAbailableGunTest() throws Exception {
+        //given
+        Wepon gun = new Wepon();
+        //when
+        boolean result_1 = gun.isAvailableGun();
+        for (int i = 0; i < gun.showGunDurability(); i++) {
+            gun.dropGunDurability();
+        }
+        boolean result_2 = gun.isAvailableGun();
+        //then
+        assertThat(result_1).isTrue();
+        assertThat(result_2).isFalse();
+    }
 }
