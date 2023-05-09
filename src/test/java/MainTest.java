@@ -79,7 +79,7 @@ class MainTest  {
     }
 
     @Test
-    @DisplayName("총으로 공격을 할때 user총의 durability의 값이 줄어든다.")
+    @DisplayName("Wepon 클래스의 총으로 공격을 할때 user총의 durability의 값이 줄어든다.")
     void useGunAndDurabilityTest() throws Exception {
         //given
         Wepon gun = new Wepon();
@@ -87,5 +87,16 @@ class MainTest  {
         boolean result = gun.dropGunDurability();
         //then
         assertThat(result).isTrue();
+    }
+
+    @Test
+    @DisplayName("Wepon 클래스의 총의 내구도를 확인하는 메서드 테스트")
+    void showGunDurabilityTest() throws Exception {
+        //given
+        Wepon gun = new Wepon();
+        //when
+        int result = gun.showGunDurability();
+        //then
+        assertThat(result).isEqualTo(1000);
     }
 }
