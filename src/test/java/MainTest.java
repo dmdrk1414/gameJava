@@ -77,4 +77,15 @@ class MainTest  {
         assertThat(result_1).isEqualTo(1);
         assertThat(result_2).isEqualTo(10);
     }
+
+    @Test
+    @DisplayName("총으로 공격을 할때 user총의 durability의 값이 줄어든다.")
+    void useGunAndDurabilityTest() throws Exception {
+        //given
+        Wepon gun = new Wepon();
+        //when
+        boolean result = gun.dropGunDurability();
+        //then
+        assertThat(result).isTrue();
+    }
 }
