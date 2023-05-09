@@ -13,18 +13,14 @@ public class Wepon {
 
     public int attack() {
         if (this.isUseGun()) {
-            this.durability -= 1;
+            dropGunDurability();
         }
         return damege;
     }
 
-    public boolean dropGunDurability() {
+    protected void dropGunDurability() {
         int valueLowDurability = 1;
-        if (this.durability > 0) {
-            this.durability = this.durability - valueLowDurability;
-            return true;
-        }
-        return false;
+        this.durability = this.durability - valueLowDurability;
     }
 
     public int showGunDurability() {
