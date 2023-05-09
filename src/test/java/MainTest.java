@@ -84,9 +84,12 @@ class MainTest  {
         //given
         Wepon gun = new Wepon();
         //when
-        boolean result = gun.dropGunDurability();
+        for (int i = 0; i < 1000; i++) {
+            gun.attack();
+        }
+        int result = gun.showGunDurability();
         //then
-        assertThat(result).isTrue();
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
